@@ -1,3 +1,5 @@
+import { Table } from "./Table";
+
 interface AutoTableDataProps {
   id: string;
   data: Record<string, unknown>[];
@@ -26,19 +28,18 @@ function Cells({ isHeader, data, id }: CellDataProps) {
 
 export function AutoTable({ data, id }: AutoTableDataProps) {
   return (
-    <table>
-      <thead>
+    <Table
+      headerContent={
         <tr>
           <Cells id={id} isHeader data={data[0]} />
         </tr>
-      </thead>
-      <tbody>
-        {data.map((row, i) => (
-          <tr key={`${id}-row-${i}`}>
-            <Cells id={id} data={row} />
-          </tr>
-        ))}
-      </tbody>
-    </table>
+      }
+    >
+      {data.map((row, i) => (
+        <tr key={`${id}-row-${i}`}>
+          <Cells id={id} data={row} />
+        </tr>
+      ))}
+    </Table>
   );
 }

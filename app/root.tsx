@@ -11,9 +11,15 @@ import {
 import "@fontsource/inter";
 import styles from "app/global/styles/layout/main.module.css";
 import { Sidebar } from "./routes/_sidebar";
+import tailwind from "~/tailwind.css";
 
 export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+  ...(cssBundleHref
+    ? [
+        { rel: "stylesheet", href: cssBundleHref },
+        { rel: "stylesheet", href: tailwind },
+      ]
+    : [{ rel: "stylesheet", href: tailwind }]),
 ];
 
 export default function App() {
