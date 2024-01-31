@@ -1,4 +1,5 @@
-import { Table } from "./Table";
+import { sanitiseKey } from "~/utils/string";
+import { Table, TableRow, TableTd, TableTh } from "./Table";
 
 interface AutoTableDataProps {
   id: string;
@@ -19,10 +20,10 @@ function Cells({ isHeader, data, id }: CellDataProps) {
     }
 
     if (isHeader) {
-      return <th key={`${id}-${key}-header`}>{key}</th>;
+      return <TableTh key={`${id}-${key}-header`}>{sanitiseKey(key)}</TableTh>;
     }
 
-    return <td key={`${id}-${key}-value`}>{value}</td>;
+    return <TableTd key={`${id}-${key}-value`}>{value}</TableTd>;
   });
 }
 
@@ -30,15 +31,15 @@ export function AutoTable({ data, id }: AutoTableDataProps) {
   return (
     <Table
       headerContent={
-        <tr>
+        <TableRow>
           <Cells id={id} isHeader data={data[0]} />
-        </tr>
+        </TableRow>
       }
     >
       {data.map((row, i) => (
-        <tr key={`${id}-row-${i}`}>
+        <TableRow key={`${id}-row-${i}`}>
           <Cells id={id} data={row} />
-        </tr>
+        </TableRow>
       ))}
     </Table>
   );

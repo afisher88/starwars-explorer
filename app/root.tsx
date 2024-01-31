@@ -12,6 +12,7 @@ import "@fontsource/inter";
 import styles from "app/global/styles/layout/main.module.css";
 import { Sidebar } from "./routes/_sidebar";
 import tailwind from "~/tailwind.css";
+import classNames from "clsx";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref
@@ -33,7 +34,7 @@ export default function App() {
       </head>
       <body>
         <Sidebar />
-        <main className={styles.mainContainer}>
+        <main className={classNames(styles.mainContainer, "prose")}>
           <Outlet />
         </main>
         <ScrollRestoration />

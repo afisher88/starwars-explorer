@@ -12,17 +12,15 @@ interface TableCellProps {
 }
 
 interface TableRowProps {
-  children:
-    | ReactElement<HTMLTableCellElement>
-    | ReactElement<HTMLTableHeaderCellElement>;
+  children: ReactElement<HTMLTableCellElement>;
 }
 
 export function TableTd({ children }: TableCellProps) {
-  return <td>{children}</td>;
+  return <td className="border-default p-2">{children}</td>;
 }
 
 export function TableTh({ children }: TableCellProps) {
-  return <th>{children}</th>;
+  return <th className="border-default p-2">{children}</th>;
 }
 
 export function TableRow({ children }: TableRowProps) {
@@ -31,7 +29,7 @@ export function TableRow({ children }: TableRowProps) {
 
 export function Table({ headerContent, children }: TableProps) {
   return (
-    <table className="border-collapse border-solid">
+    <table className="border-collapse border-default">
       <thead>{headerContent}</thead>
       <tbody>{children}</tbody>
     </table>

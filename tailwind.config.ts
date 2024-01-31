@@ -2,6 +2,9 @@ import type { Config } from 'tailwindcss'
 
 export default {
   content: ['./app/**/*.{js,jsx,ts,tsx}'],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
   theme: {
     colors: {
       'yellow': '#FFE81F',
@@ -14,5 +17,12 @@ export default {
     fontFamily: {
       sans: ['inter', 'sans-serif'],
     },
+    borderColor: {
+      default: '#B3B6B7'
+    },
+    borderWidth: {
+      default: '1px',
+      '1': '1px'
+    }
   }
 } satisfies Config
