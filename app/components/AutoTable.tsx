@@ -1,12 +1,11 @@
-interface TableDataProps {
+interface AutoTableDataProps {
   id: string;
   data: Record<string, unknown>[];
 }
 
-interface CellDataProps {
-  id: string;
+interface CellDataProps extends Omit<AutoTableDataProps, "data"> {
   isHeader?: boolean;
-  data: unknown;
+  data: Record<string, unknown>;
 }
 
 function Cells({ isHeader, data, id }: CellDataProps) {
@@ -25,7 +24,7 @@ function Cells({ isHeader, data, id }: CellDataProps) {
   });
 }
 
-export function Table({ data, id }: TableDataProps) {
+export function AutoTable({ data, id }: AutoTableDataProps) {
   return (
     <table>
       <thead>

@@ -1,5 +1,5 @@
 import { MetaFunction, useLoaderData } from "@remix-run/react";
-import { Table } from "~/components/table";
+import { AutoTable } from "~/components/AutoTable";
 import { getPeople } from "~/data/people";
 
 export const meta: MetaFunction = () => {
@@ -21,7 +21,7 @@ export default function People() {
   return (
     <section>
       <h1>People ({people.count})</h1>
-      <Table id="starwars-people" data={people.results} />
+      <AutoTable id="starwars-people" data={people.results} />
     </section>
   );
 }
