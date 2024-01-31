@@ -34,8 +34,8 @@ export function Table({ data, id }: TableDataProps) {
         </tr>
       </thead>
       <tbody>
-        {data.map((row) => (
-          <tr key={`${id}-row`}>
+        {data.map((row, i) => (
+          <tr key={`${id}-row-${i}`}>
             <Cells id={id} data={row} />
           </tr>
         ))}
